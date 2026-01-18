@@ -1,0 +1,17 @@
+{
+	"id": "project-1",
+	"title": "Darba nosaukums",
+	"year": "2021",
+	"images": [
+		{
+			"publicId": "onlyonly-studio/59DU3026",
+			"alt": "",
+			"layout": "landscape"
+		},
+		{
+			"publicId": "onlyonly-studio/balva1-2-min",
+			"alt": "",
+			"layout": "landscape"
+		}
+	]
+}

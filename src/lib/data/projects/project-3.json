@@ -1,0 +1,27 @@
+{
+	"id": "project-3",
+	"title": "Darba nosaukums",
+	"year": "2021",
+	"images": [
+		{
+			"publicId": "onlyonly-studio/A_key(1)-min",
+			"alt": "",
+			"layout": "landscape"
+		},
+		{
+			"publicId": "onlyonly-studio/C_Case(1)-min",
+			"alt": "",
+			"layout": "landscape"
+		},
+		{
+			"publicId": "onlyonly-studio/C_Folder(1)-min",
+			"alt": "",
+			"layout": "landscape"
+		},
+		{
+			"publicId": "onlyonly-studio/PR_Frame(1)-min",
+			"alt": "",
+			"layout": "landscape"
+		}
+	]
+}

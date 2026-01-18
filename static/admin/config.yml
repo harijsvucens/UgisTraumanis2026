@@ -1,0 +1,53 @@
+# Use 'test-repo' for local development without authentication
+# Change to 'github' for production with your repository
+backend:
+  name: github
+  repo: harijsvucens/UgisTraumanis2026
+  branch: main
+
+# For local development, you can use test-repo backend instead:
+# backend:
+#   name: test-repo
+
+# Where uploaded images go (if not using Cloudinary)
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "projects"
+    label: "Projects"
+    folder: "src/lib/data/projects"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    format: "json"
+    identifier_field: "id"
+    fields:
+      - label: "ID"
+        name: "id"
+        widget: "string"
+        hint: "Unique identifier for the project (e.g., project-1)"
+      - label: "Title"
+        name: "title"
+        widget: "string"
+      - label: "Year"
+        name: "year"
+        widget: "string"
+      - label: "Images"
+        name: "images"
+        widget: "list"
+        fields:
+          - label: "Cloudinary Public ID"
+            name: "publicId"
+            widget: "string"
+            hint: "e.g., onlyonly-studio/IMG_0098-min"
+          - label: "Alt Text"
+            name: "alt"
+            widget: "string"
+          - label: "Layout"
+            name: "layout"
+            widget: "select"
+            options:
+              - { label: "Landscape", value: "landscape" }
+              - { label: "Portrait", value: "portrait" }
+              - { label: "Narrow", value: "narrow" }
