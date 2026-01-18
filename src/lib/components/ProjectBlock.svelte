@@ -8,7 +8,9 @@
 <section class="mb-16">
 	<ImageGrid images={project.images} />
 	<div class="mt-2">
-		<h2 class="inline uppercase">{project.title}</h2>
-		<span class="ml-2">{project.year}</span>
+		<span class="peer mr-4 inline-block w-12">{project.year}</span>
+		<h2 class="inline opacity-0 transition-opacity duration-200 peer-hover:opacity-100">
+			{project.title}
+		</h2>
 	</div>
 </section>
