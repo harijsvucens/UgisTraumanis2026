@@ -31,7 +31,7 @@
 {#if lightbox.isOpen && lightbox.currentImage}
 	<!-- Backdrop -->
 	<div
-		class="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
+		class="fixed inset-0 z-50 flex items-center justify-center bg-[#adadad]/90"
 		transition:fade={{ duration: 200 }}
 		onclick={handleBackdropClick}
 		onkeydown={handleKeydown}
@@ -107,15 +107,21 @@
 		{/if}
 
 		<!-- Image container -->
-		<div class="flex items-center justify-center" transition:scale={{ duration: 200, start: 0.95 }}>
+		<div
+			class="relative flex h-[85vh] w-[85vw] items-center justify-center"
+			transition:scale={{ duration: 200, start: 0.95 }}
+		>
 			{#key lightbox.currentIndex}
-				<div transition:fade={{ duration: 150 }}>
+				<div
+					class="flex h-full w-full items-center justify-center"
+					transition:fade={{ duration: 150 }}
+				>
 					<CloudinaryImage
 						publicId={lightbox.currentImage.publicId}
 						alt={lightbox.currentImage.alt}
 						width={1600}
-						mode="fit"
-						class="max-h-[85vh] max-w-[85vw] object-contain"
+						mode="contain"
+						class="max-h-[85vh] max-w-[85vw]"
 						priority
 					/>
 				</div>

@@ -11,7 +11,7 @@
 		priority = false,
 		srcsetWidths,
 		quality = 'auto',
-		mode = 'fill',
+		mode = 'cover',
 		class: userClass,
 		...rest
 	}: {
@@ -23,7 +23,7 @@
 		priority?: boolean;
 		srcsetWidths?: number[];
 		quality?: string | number;
-		mode?: 'fill' | 'fit';
+		mode?: 'cover' | 'contain';
 		class?: string;
 		[key: string]: any;
 	} = $props();
@@ -51,8 +51,8 @@
 			fetchFormat: 'auto'
 		};
 
-		// 'fill' crops to fill dimensions (for grids), 'fit' maintains aspect ratio (for lightbox)
-		if (mode === 'fill') {
+		// 'cover' crops to fill dimensions (for grids), 'contain' maintains aspect ratio (for lightbox)
+		if (mode === 'cover') {
 			transformations.gravity = 'auto';
 			transformations.crop = 'fill';
 		} else {
@@ -88,7 +88,7 @@
 	class={['image-container', userClass]}
 	class:error
 	class:loaded
-	class:fit={mode === 'fit'}
+	class:contain={mode === 'contain'}
 >
 	{#if !error}
 		<img
@@ -138,6 +138,16 @@
 		transition: background-color 0.5s ease;
 	}
 
+	.image-container.contain {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-color: transparent;
+		overflow: visible;
+	}
+
 	.image {
 		display: block;
 		width: 100%;
@@ -147,7 +157,7 @@
 		transition: opacity 400ms ease-in-out;
 	}
 
-	.image-container.fit .image {
+	.image-container.contain .image {
 		width: auto;
 		height: auto;
 		max-width: 100%;
