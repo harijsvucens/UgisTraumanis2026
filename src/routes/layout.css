@@ -17,7 +17,7 @@
 /* ===== Global Defaults ===== */
 body {
 	font-family: var(--font-sans);
-	font-size: clamp(12px, 0.6vw + 5px, 14px);
+	font-size: clamp(12px, 0.5vw + 6px, 18px);
 	line-height: 1.5;
 }
 

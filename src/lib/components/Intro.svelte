@@ -10,7 +10,7 @@
 	<h1 class="mb-8 uppercase">UĢIS TRAUMANIS</h1>
 
 	<div class="space-y-1">
-		<p class="mb-4">IZSTĀDES:</p>
+		<p class="mb-4">IZSTĀDES</p>
 
 		{#each exhibitions as exhibition}
 			<div class="cursor-default transition-colors duration-200 hover:text-black/40">
