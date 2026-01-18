@@ -134,8 +134,6 @@
 		position: relative;
 		width: 100%;
 		overflow: hidden;
-		background-color: #f0f0f0; /* Simple skeleton background */
-		transition: background-color 0.5s ease;
 	}
 
 	.image-container.contain {
@@ -202,6 +200,5 @@
 
 	.error-message p {
 		margin: 0;
-		font-size: 0.875rem;
 	}
 </style>

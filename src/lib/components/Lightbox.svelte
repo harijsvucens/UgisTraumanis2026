@@ -130,7 +130,7 @@
 
 		<!-- Image counter -->
 		{#if lightbox.images.length > 1}
-			<div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-sm text-white/70">
+			<div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/70">
 				{lightbox.currentIndex + 1} / {lightbox.images.length}
 			</div>
 		{/if}

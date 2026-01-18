@@ -4,12 +4,25 @@
 	import { lightbox } from '$lib/stores/lightbox.svelte';
 
 	let { images }: { images: ProjectImage[] } = $props();
+
+	// Get aspect ratio based on image layout (all share same height, width varies)
+	const getAspectClass = (layout: ProjectImage['layout']) => {
+		switch (layout) {
+			case 'landscape':
+				return 'aspect-[3/2]'; // wider than tall
+			case 'narrow':
+				return 'aspect-[2/3]'; // narrower portrait
+			case 'portrait':
+			default:
+				return 'aspect-[4/5]'; // standard portrait
+		}
+	};
 </script>
 
-<div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4">
+<div class="image-grid">
 	{#each images as image, index}
 		<button
-			class="cursor-pointer overflow-hidden rounded-sm transition-opacity hover:opacity-90"
+			class="image-item cursor-pointer transition-opacity hover:opacity-90"
 			onclick={() => lightbox.open(images, index)}
 			aria-label="View {image.alt} in lightbox"
 		>
@@ -17,8 +30,33 @@
 				publicId={image.publicId}
 				alt={image.alt}
 				sizes="(min-width: 768px) 33vw, 100vw"
-				class="aspect-[4/5] h-auto w-full object-cover"
+				class="{getAspectClass(image.layout)} h-full w-auto max-w-full object-cover"
 			/>
 		</button>
 	{/each}
 </div>
+
+<style>
+	.image-grid {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+
+	.image-item {
+		height: 350px; /* Fixed height for all images */
+		flex-shrink: 0;
+	}
+
+	@media (max-width: 640px) {
+		.image-item {
+			height: 280px;
+			width: 100%;
+		}
+
+		.image-item :global(.image-container) {
+			width: 100%;
+			height: 100%;
+		}
+	}
+</style>

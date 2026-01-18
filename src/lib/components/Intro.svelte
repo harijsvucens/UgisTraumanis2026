@@ -6,16 +6,16 @@
 	let { exhibitions }: Props = $props();
 </script>
 
-<div class="mb-16 max-w-prose">
-	<h1 class="mb-8 text-2xl font-bold uppercase">UĢIS TRAUMANIS</h1>
+<div class="mb-16 max-w-prose lg:max-w-none">
+	<h1 class="mb-8 uppercase">UĢIS TRAUMANIS</h1>
 
-	<div class="space-y-1 text-sm">
-		<p class="mb-4 font-bold">IZSTĀDES:</p>
+	<div class="space-y-1">
+		<p class="mb-4">IZSTĀDES:</p>
 
 		{#each exhibitions as exhibition}
-			<div>
-				{exhibition.year}
-				{exhibition.description}
+			<div class="cursor-default transition-colors duration-200 hover:text-black/40">
+				<span class="mr-4 inline-block w-12">{exhibition.year}</span>
+				<span>{exhibition.description}</span>
 			</div>
 		{/each}
 	</div>

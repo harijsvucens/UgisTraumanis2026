@@ -7,8 +7,8 @@
 
 <section class="mb-16">
 	<ImageGrid images={project.images} />
-	<div class="mt-4 text-sm text-gray-600">
-		<h2 class="inline font-bold uppercase">{project.title}</h2>
+	<div class="mt-4">
+		<h2 class="inline uppercase">{project.title}</h2>
 		<span class="ml-2">{project.year}</span>
 	</div>
 </section>

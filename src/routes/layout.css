@@ -1,1 +1,36 @@
 @import 'tailwindcss';
+
+/* ===== Custom Font Definition ===== */
+@font-face {
+	font-family: 'SuisseIntl';
+	src: url('/SuisseIntl-Regular-WebS.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* ===== Theme Configuration ===== */
+@theme {
+	--font-sans: 'SuisseIntl', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ===== Global Defaults ===== */
+body {
+	font-family: var(--font-sans);
+	font-size: clamp(12px, 0.6vw + 5px, 14px);
+	line-height: 1.5;
+}
+
+/* ===== Heading Reset (Unified Typography) ===== */
+@layer base {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-size: inherit;
+		font-weight: inherit;
+		line-height: inherit;
+	}
+}
