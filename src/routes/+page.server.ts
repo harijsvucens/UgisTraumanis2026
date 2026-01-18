@@ -1,19 +1,67 @@
 import type { Project } from '$lib/data/projects';
 import exhibitionsData from '$lib/data/exhibitions.json';
 
+// Interface for the raw project data (how it looks in the JSON file now)
+interface RawProject {
+	id: string;
+	title: string;
+	year: string;
+	images: {
+		assetId: string; // This references the Asset collection
+		layout: 'landscape' | 'portrait' | 'narrow';
+	}[];
+}
+
+// Interface for the Asset data
+interface Asset {
+	id: string;
+	title: string;
+	publicId: string;
+	alt: string;
+}
+
 export async function load() {
-	// Load all JSON files from the projects folder
-	const projectFiles = import.meta.glob<{ default: Project }>('/src/lib/data/projects/*.json', {
+	// 1. Load all Assets
+	const assetFiles = import.meta.glob<{ default: Asset }>('/src/lib/data/assets/*.json', {
 		eager: true
 	});
 
-	// Extract project data and sort by id
+	// Create a lookup map for assets:  id -> Asset
+	const assetMap = new Map<string, Asset>();
+	Object.values(assetFiles).forEach((mod) => {
+		const asset = mod.default;
+		if (asset.id) assetMap.set(asset.id, asset);
+	});
+
+	// 2. Load all Projects
+	const projectFiles = import.meta.glob<{ default: RawProject }>('/src/lib/data/projects/*.json', {
+		eager: true
+	});
+
+	// 3. Process projects and hydrate images
 	const projects: Project[] = Object.values(projectFiles)
-		.map((module) => module.default)
+		.map((module) => {
+			const raw = module.default;
+
+			// Transform the raw "assetId" into the full "ProjectImage" structure
+			const hydratedImages =
+				raw.images?.map((img) => {
+					const asset = assetMap.get(img.assetId);
+					return {
+						publicId: asset?.publicId || '', // Fallback if asset not found
+						alt: asset?.alt || raw.title || '', // Use asset alt, or fallback to project title
+						layout: img.layout || 'landscape'
+					};
+				}) || [];
+
+			return {
+				...raw,
+				images: hydratedImages
+			};
+		})
 		.sort((a, b) => {
-			// Extract numeric part from id (e.g., "project-1" -> 1)
-			const numA = parseInt(a.id.replace('project-', ''));
-			const numB = parseInt(b.id.replace('project-', ''));
+			const numA = parseInt(a.id.replace('project-', '') || '0');
+			const numB = parseInt(b.id.replace('project-', '') || '0');
 			return numA - numB;
 		});
 

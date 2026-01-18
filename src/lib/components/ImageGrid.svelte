@@ -40,7 +40,7 @@
 	.image-grid {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 1rem;
+		gap: 0.2rem;
 	}
 
 	.image-item {

@@ -1,16 +1,14 @@
 {
-  "id": "project-1",
+  "id": "Projekts-1",
   "title": "Latvijas Ilgtspējīgas pārvaldības balvas dizains",
   "year": "2021",
   "images": [
     {
-      "publicId": "59DU3026_afyw3r.jpg",
-      "alt": "Balvas dizains 2",
+      "assetId": "303e83a2-c8b8-4c30-a615-de9eeecac290",
       "layout": "landscape"
     },
     {
-      "publicId": "59DU3026_afyw3r.jpg",
-      "alt": "Balvas dizains 2",
+      "assetId": "d526d036-3083-4e0a-8cb2-d672f6856032",
       "layout": "landscape"
     }
   ]
