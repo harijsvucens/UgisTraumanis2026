@@ -113,8 +113,9 @@
 		>
 			{#key lightbox.currentIndex}
 				<div
-					class="flex h-full w-full items-center justify-center"
-					transition:fade={{ duration: 150 }}
+					class="absolute inset-0 flex items-center justify-center"
+					in:fade={{ duration: 150 }}
+					out:fade={{ duration: 150 }}
 				>
 					<CloudinaryImage
 						publicId={lightbox.currentImage.publicId}
