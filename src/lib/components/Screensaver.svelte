@@ -74,6 +74,9 @@
 
 {#if active && currentImage}
 	<div class="fixed inset-0 z-40 bg-white" transition:fade={{ duration: 1000 }}>
+		<h1 class="fixed top-2 left-2 z-50 mb-8 text-black uppercase mix-blend-difference">
+			UĢIS TRAUMANIS
+		</h1>
 		{#key currentImageIndex}
 			<div class="absolute inset-0" transition:fade={{ duration: 1000 }}>
 				<CloudinaryImage
