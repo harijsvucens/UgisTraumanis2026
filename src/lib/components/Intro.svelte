@@ -17,7 +17,7 @@
 </script>
 
 <div class="mb-16 max-w-prose lg:max-w-none">
-	<h1 class="mb-8 uppercase">UĢIS TRAUMANIS</h1>
+	<h1 class="relative z-50 mb-8 uppercase">UĢIS TRAUMANIS</h1>
 
 	<nav class="mb-4 flex gap-4">
 		{#each tabs as tab}
