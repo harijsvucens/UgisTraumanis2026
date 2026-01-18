@@ -5,7 +5,7 @@
 
 	let { projects }: { projects: Project[] } = $props();
 
-	let idleTime = 30000; // 30 seconds
+	let idleTime = 20000; // 20 seconds
 	let active = $state(false);
 	let images: ProjectImage[] = $state([]);
 	let currentImageIndex = $state(0);
