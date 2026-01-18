@@ -33,7 +33,10 @@
 		clearTimeout(timer);
 		if (typeof window !== 'undefined') {
 			timer = setTimeout(() => {
-				active = true;
+				// Only activate on desktop (width > 1024px)
+				if (window.innerWidth > 1024) {
+					active = true;
+				}
 			}, idleTime);
 		}
 	}
