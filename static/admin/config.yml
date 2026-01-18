@@ -59,6 +59,11 @@ collections:
       - label: "Year"
         name: "year"
         widget: "string"
+      - label: "Sort Order"
+        name: "sortOrder"
+        widget: "number"
+        default: 0
+        hint: "Higher numbers appear first."
       - label: "Images"
         name: "images"
         widget: "list"

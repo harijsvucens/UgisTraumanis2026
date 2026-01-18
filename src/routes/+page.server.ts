@@ -6,6 +6,7 @@ interface RawProject {
 	id: string;
 	title: string;
 	year: string;
+	sortOrder?: number;
 	images: {
 		assetId: string; // This references the Asset collection
 		layout: 'landscape' | 'portrait' | 'narrow';
@@ -55,11 +56,18 @@ export async function load() {
 				}) || [];
 
 			return {
-				...raw,
+				id: raw.id,
+				title: raw.title,
+				year: raw.year,
+				sortOrder: raw.sortOrder ?? 0,
 				images: hydratedImages
 			};
 		})
 		.sort((a, b) => {
+			// Sort by sortOrder descending (highest first)
+			const sortDiff = (b.sortOrder ?? 0) - (a.sortOrder ?? 0);
+			if (sortDiff !== 0) return sortDiff;
+			// Fallback to ID sorting if sortOrder is the same
 			const numA = parseInt(a.id.replace('project-', '') || '0');
 			const numB = parseInt(b.id.replace('project-', '') || '0');
 			return numA - numB;

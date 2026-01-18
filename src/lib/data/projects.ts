@@ -8,5 +8,6 @@ export interface Project {
 	id: string;
 	title: string;
 	year: string;
+	sortOrder?: number;
 	images: ProjectImage[];
 }
