@@ -33,7 +33,7 @@
 
 	<div class="space-y-1">
 		{#if activeTab === 'bio'}
-			<p class="whitespace-pre-line">{bio}</p>
+			<p class="max-w-prose whitespace-pre-line">{bio}</p>
 		{:else if activeTab === 'izstades'}
 			{#each exhibitions as exhibition}
 				<div class="cursor-default transition-colors duration-200 hover:text-black/40">
