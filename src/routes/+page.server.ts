@@ -1,5 +1,6 @@
 import type { Project } from '$lib/data/projects';
 import exhibitionsData from '$lib/data/exhibitions.json';
+import profileData from '$lib/data/profile.json';
 
 // Interface for the raw project data (how it looks in the JSON file now)
 interface RawProject {
@@ -73,5 +74,5 @@ export async function load() {
 			return numA - numB;
 		});
 
-	return { projects, exhibitions: exhibitionsData.exhibitions };
+	return { projects, exhibitions: exhibitionsData.exhibitions, profile: profileData };
 }
