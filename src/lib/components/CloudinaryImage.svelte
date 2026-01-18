@@ -11,6 +11,7 @@
 		priority = false,
 		srcsetWidths,
 		quality = 'auto',
+		mode = 'fill',
 		class: userClass,
 		...rest
 	}: {
@@ -22,6 +23,7 @@
 		priority?: boolean;
 		srcsetWidths?: number[];
 		quality?: string | number;
+		mode?: 'fill' | 'fit';
 		class?: string;
 		[key: string]: any;
 	} = $props();
@@ -46,10 +48,16 @@
 	const getUrl = (w: number | null) => {
 		const transformations: any = {
 			quality: quality,
-			fetchFormat: 'auto',
-			gravity: 'auto',
-			crop: 'fill'
+			fetchFormat: 'auto'
 		};
+
+		// 'fill' crops to fill dimensions (for grids), 'fit' maintains aspect ratio (for lightbox)
+		if (mode === 'fill') {
+			transformations.gravity = 'auto';
+			transformations.crop = 'fill';
+		} else {
+			transformations.crop = 'fit';
+		}
 
 		if (w) {
 			transformations.width = w;
@@ -75,7 +83,13 @@
 	const fallbackSrc = $derived(getUrl(finalSrcsetWidths[0]));
 </script>
 
-<div {...rest} class={['image-container', userClass]} class:error class:loaded>
+<div
+	{...rest}
+	class={['image-container', userClass]}
+	class:error
+	class:loaded
+	class:fit={mode === 'fit'}
+>
 	{#if !error}
 		<img
 			bind:this={imageElement}
@@ -127,10 +141,18 @@
 	.image {
 		display: block;
 		width: 100%;
-		height: auto;
+		height: 100%;
 		object-fit: cover;
 		opacity: 0;
 		transition: opacity 400ms ease-in-out;
+	}
+
+	.image-container.fit .image {
+		width: auto;
+		height: auto;
+		max-width: 100%;
+		max-height: 100%;
+		object-fit: contain;
 	}
 
 	.image.loaded {

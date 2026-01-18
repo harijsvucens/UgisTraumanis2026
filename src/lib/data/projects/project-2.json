@@ -1,12 +1,12 @@
 {
-	"id": "project-2",
-	"title": "Darba nosaukums",
-	"year": "2021",
-	"images": [
-		{
-			"publicId": "onlyonly-studio/3J7A0556-min",
-			"alt": "",
-			"layout": "landscape"
-		}
-	]
+  "id": "project-2",
+  "title": "Test project",
+  "year": "2026",
+  "images": [
+    {
+      "publicId": "Daydreamer_IG_10_rp2jes.jpg",
+      "alt": "Test text",
+      "layout": "narrow"
+    }
+  ]
 }

@@ -1,4 +1,5 @@
 import type { Project } from '$lib/data/projects';
+import exhibitionsData from '$lib/data/exhibitions.json';
 
 export async function load() {
 	// Load all JSON files from the projects folder
@@ -16,5 +17,5 @@ export async function load() {
 			return numA - numB;
 		});
 
-	return { projects };
+	return { projects, exhibitions: exhibitionsData.exhibitions };
 }

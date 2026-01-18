@@ -1,0 +1,132 @@
+{
+  "exhibitions": [
+    {
+      "year": "2015test",
+      "description": "ART VILNIUS’15 mākslas mese. Skulptūra."
+    },
+    {
+      "year": "2008",
+      "description": "“Homo Urbanus-Homo Sapiens” grupas izstāde,” Westergasfabriek” ; Amsterdama; 4 tērauda skulptūras."
+    },
+    {
+      "year": "2007",
+      "description": "Personālizstāde “1:1”, Andrejsalas dienvidu gala krastmalā, 3 rūsinātas tērauda skulptūras"
+    },
+    {
+      "year": "2006",
+      "description": "“Enigma”, grupas izstāde, Dekoratīvās Mākslas un Dizaina muzejs, objekts (tērauds, krāsa)"
+    },
+    {
+      "year": "2004",
+      "description": "Personālizstāde “bOjekti” , LMS galerija, skulptūras (metināts tērauds , krāsu pigmenti) un fotogrāfijas"
+    },
+    {
+      "year": "2003",
+      "description": "“Fibre and Modernity”, Latvijas mūsdienu mākslas izstāde Lježas modernās mākslas muzejā (Beļģija), skulptūras (tērauds un akmens)"
+    },
+    {
+      "year": "2002",
+      "description": "“REAKCIJA”, grupas izstāde, Vācijas Nacionālās Bankas Maincas filiāle, skulptūras (nerūs.tērauds, tērauds)"
+    },
+    {
+      "year": "2002",
+      "description": "Darbs Ekenas viesdarbnīcā (Somija), ”ON...” - izstāde Ekenas pilsētas parkā, divas skulptūras (tērauds un krāsa)"
+    },
+    {
+      "year": "2001",
+      "description": "“MANIPULĀTORS”, grupas izstāde, Dekoratīvi Lietišķās Mākslas Muzejs, skulptūras (tērauds)"
+    },
+    {
+      "year": "2001",
+      "description": "“Fibre and Modernity”, Latvijas mūsdienu mākslas izstāde, UNESCO izstāžu zāle Parīzē, skulptūras (tērauds un akmens)"
+    },
+    {
+      "year": "2000",
+      "description": "“ILUMINĀTORS”, grupas izstāde, Dekoratīvi Lietišķās Mākslas Muzejs, skulptūras"
+    },
+    {
+      "year": "2000",
+      "description": "“DIFŪZIJA”, grupas izstāde, “Dizaina Nams”, mākslas dizaina objekti (metāls, krāsa, gaisma)"
+    },
+    {
+      "year": "1999",
+      "description": "“RUDENS 99”, grupas izstāde, metāla objekti"
+    },
+    {
+      "year": "1999",
+      "description": "“RĪGA 800”, grupas izstāde, LMS galerija, Rīgas Domes balva par divām skulptūrām (tērauds un akmens)"
+    },
+    {
+      "year": "1999",
+      "description": "“Somija, Latvija, Metāls”, grupas izstāde, Dekoratīvi Lietišķās Mākslas Muzejs, skulptūras (tērauds, krāsa)"
+    },
+    {
+      "year": "1999",
+      "description": "“FORMA BEZ AKMENS”, grupas izstāde, “Dizaina Nams”, skulptūras"
+    },
+    {
+      "year": "1999",
+      "description": "“DABAI-4”, grupas izstāde, LMS galerija, skulptūras (tērauds, krāsa)"
+    },
+    {
+      "year": "1998",
+      "description": "“NATURE MORTE”, grupas izstāde, LMS galerija, skulptūras (tērauds)"
+    },
+    {
+      "year": "1998",
+      "description": "Darbs Lovīsas (Somija) viesdarbnīcā, divas tērauda skulptūras"
+    },
+    {
+      "year": "1997",
+      "description": "“PĒDAS”, LMS rudens simpozijs Zvārtavā, skulptūra (koks)"
+    },
+    {
+      "year": "1997",
+      "description": "“VIENKĀRŠI LIETAS”, grupas izstāde, galerija “Bastejs”, skulptūras (tērauds)"
+    },
+    {
+      "year": "1997",
+      "description": "“LATVIJAS METĀLMĀKSLA”, grupas izstāde, Dekoratīvi Lietišķās Mākslas Muzejs, skulptūra (tērauds)"
+    },
+    {
+      "year": "1996",
+      "description": "“PAŠPORTRETI”, grupas izstāde, galerija “Bastejs”, skulptūra (tērauds)"
+    },
+    {
+      "year": "1996",
+      "description": "“TREŠĀ DABA”, grupas izstāde, LMS galerija, skulptūras (tērauds)"
+    },
+    {
+      "year": "1996",
+      "description": "“KABINETS”, mobīlā grupas izstāde, Rīga (galerija “Kolonna”) - Aizkraukle - Pļaviņas, metāla gleznas (dzelzs, varš, alumīnijs, emalja)"
+    },
+    {
+      "year": "1995",
+      "description": "Rotas, galerija “A. Sūna”"
+    },
+    {
+      "year": "1995",
+      "description": "“CLASS OF 95”, Anglija, rotas (sudrabs)"
+    },
+    {
+      "year": "1995",
+      "description": "“OTRĀ DABA”, grupas izstāde, skulptūra (metāls, koks, krāsa)"
+    },
+    {
+      "year": "1994",
+      "description": "Objektu grupa “Formu Asociācija”, LMA diplomdarbs (koks, metāls)"
+    },
+    {
+      "year": "1993",
+      "description": "“ROTAS UN GAISMA”, grupas izstāde, “Salons A”, rotas (sudrabs)"
+    },
+    {
+      "year": "1993",
+      "description": "“ERSCHLOSENE RAUME”, grupas izstāde, galerija “ACC”, Veimāra (Vācija), skulptūra (dzelzs, varš, emalja)"
+    },
+    {
+      "year": "1992",
+      "description": "LMA Metāla Dizaina nodaļas izstāde, izstāžu zāle “Jāņa Sēta”, rotas"
+    }
+  ]
+}

@@ -8,8 +8,8 @@
 
 <SEO />
 
-<main class="mx-auto max-w-screen-xl p-4">
-	<Intro />
+<main class="p-2">
+	<Intro exhibitions={data.exhibitions} />
 	{#each data.projects as project}
 		<ProjectBlock {project} />
 	{/each}

@@ -5,6 +5,14 @@ backend:
   repo: harijsvucens/UgisTraumanis2026
   branch: main
 
+media_libraries:
+  cloudinary:
+    config:
+      cloud_name: dowxhswap
+      api_key: 856414461968897
+    output_filename_only: true
+    use_transformations: true
+
 # For local development, you can use test-repo backend instead:
 # backend:
 #   name: test-repo
@@ -39,8 +47,8 @@ collections:
         fields:
           - label: "Cloudinary Public ID"
             name: "publicId"
-            widget: "string"
-            hint: "e.g., onlyonly-studio/IMG_0098-min"
+            widget: "image"
+            hint: "Select an image from Cloudinary"
           - label: "Alt Text"
             name: "alt"
             widget: "string"
@@ -51,3 +59,21 @@ collections:
               - { label: "Landscape", value: "landscape" }
               - { label: "Portrait", value: "portrait" }
               - { label: "Narrow", value: "narrow" }
+
+  - name: "content"
+    label: "Content"
+    files:
+      - name: "exhibitions"
+        label: "Exhibitions"
+        file: "src/lib/data/exhibitions.json"
+        fields:
+          - label: "Exhibitions"
+            name: "exhibitions"
+            widget: "list"
+            fields:
+              - label: "Year"
+                name: "year"
+                widget: "string"
+              - label: "Description"
+                name: "description"
+                widget: "string"
