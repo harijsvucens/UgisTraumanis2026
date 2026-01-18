@@ -55,8 +55,4 @@
 		cursor: pointer;
 		font: inherit;
 	}
-
-	.tab-button.active {
-		font-weight: bold;
-	}
 </style>
