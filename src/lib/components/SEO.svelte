@@ -10,6 +10,7 @@
 		type?: 'website' | 'article';
 		siteUrl?: string;
 		projects?: Project[];
+		keywords?: string;
 	}
 
 	let {
@@ -19,7 +20,8 @@
 		image,
 		type = 'website',
 		siteUrl = 'https://ugistraumanis.com',
-		projects = []
+		projects = [],
+		keywords = 'Uģis Traumanis, Latvian sculptor, metal art, steel sculpture, contemporary sculpture, metal artist Latvia, skulptūra, tēlnieks, metāla māksla'
 	}: Props = $props();
 
 	// Build full canonical URL
@@ -52,10 +54,33 @@
 		email: 'traumanis@gmail.com',
 		telephone: '+371 26181546',
 		sameAs: [
-			// Add social media profile URLs as they become available
-			// 'https://www.instagram.com/ugistraumanis',
-			// 'https://www.facebook.com/ugistraumanis',
+			'https://www.instagram.com/ugis_traumanis'
+			// Add more social profiles as they become available
 		]
+	});
+
+	// Organization/Studio schema for local business SEO
+	const organizationSchema = $derived({
+		'@context': 'https://schema.org',
+		'@type': 'Organization',
+		name: 'Uģis Traumanis Studio',
+		url: siteUrl,
+		logo: fullImage,
+		founder: {
+			'@type': 'Person',
+			name: 'Uģis Traumanis'
+		},
+		contactPoint: {
+			'@type': 'ContactPoint',
+			email: 'traumanis@gmail.com',
+			telephone: '+371 26181546',
+			contactType: 'customer service',
+			availableLanguage: ['Latvian', 'English']
+		},
+		address: {
+			'@type': 'PostalAddress',
+			addressCountry: 'LV'
+		}
 	});
 
 	// ImageGallery schema for the portfolio
@@ -91,7 +116,7 @@
 	);
 
 	// Combine all schemas into a single array for JSON-LD
-	const allSchemas = $derived([personSchema, gallerySchema, ...artworkSchemas]);
+	const allSchemas = $derived([personSchema, organizationSchema, gallerySchema, ...artworkSchemas]);
 </script>
 
 <svelte:head>
@@ -99,6 +124,7 @@
 	<title>{title}</title>
 	<meta name="title" content={title} />
 	<meta name="description" content={description} />
+	<meta name="keywords" content={keywords} />
 	<link rel="canonical" href={fullCanonical} />
 
 	<!-- hreflang for multilingual SEO -->
