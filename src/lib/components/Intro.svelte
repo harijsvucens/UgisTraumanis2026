@@ -1,19 +1,32 @@
 <script lang="ts">
+	import { pushState } from '$app/navigation';
+	import { page } from '$app/stores';
+
 	interface Props {
 		exhibitions: { year: string; description: string }[];
 		bio: string;
 		contacts: string;
+		initialTab?: 'bio' | 'izstades' | 'kontakti';
 	}
 
-	let { exhibitions, bio, contacts }: Props = $props();
+	let { exhibitions, bio, contacts, initialTab = 'bio' }: Props = $props();
 
-	let activeTab = $state<'bio' | 'izstades' | 'kontakti'>('bio');
+	// Use local state for tab switching - no page reload
+	let activeTab = $state<'bio' | 'izstades' | 'kontakti'>(initialTab);
 
 	const tabs = [
-		{ id: 'bio', label: 'BIO' },
-		{ id: 'izstades', label: 'IZSTĀDES' },
-		{ id: 'kontakti', label: 'KONTAKTI' }
+		{ id: 'bio', label: 'BIO', href: '/' },
+		{ id: 'izstades', label: 'IZSTĀDES', href: '/izstades' },
+		{ id: 'kontakti', label: 'KONTAKTI', href: '/kontakti' }
 	] as const;
+
+	function handleTabClick(e: MouseEvent, tab: (typeof tabs)[number]) {
+		e.preventDefault();
+		// Update local state immediately (no reload)
+		activeTab = tab.id;
+		// Update URL using shallow routing (pushState) - no navigation, just URL change
+		pushState(tab.href, {});
+	}
 </script>
 
 <div class="mb-16 max-w-prose lg:max-w-none">
@@ -21,10 +34,11 @@
 
 	<div class="mb-4 flex gap-4" role="tablist" aria-label="Profila sadaļas">
 		{#each tabs as tab}
-			<button
+			<a
+				href={tab.href}
 				class="tab-button uppercase transition-colors duration-200 hover:text-black/40"
 				class:active={activeTab === tab.id}
-				onclick={() => (activeTab = tab.id)}
+				onclick={(e) => handleTabClick(e, tab)}
 				role="tab"
 				id="tab-{tab.id}"
 				aria-selected={activeTab === tab.id}
@@ -32,7 +46,7 @@
 				tabindex={activeTab === tab.id ? 0 : -1}
 			>
 				{tab.label}
-			</button>
+			</a>
 		{/each}
 	</div>
 
@@ -87,6 +101,8 @@
 		padding: 0;
 		cursor: pointer;
 		font: inherit;
+		text-decoration: none;
+		color: inherit;
 	}
 
 	/* Screen reader only - for hidden headings */

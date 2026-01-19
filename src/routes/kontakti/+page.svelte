@@ -7,7 +7,13 @@
 	let { data } = $props();
 </script>
 
-<SEO projects={data.projects} />
+<SEO
+	title="Kontakti | Uģis Traumanis"
+	description="Sazinies ar Uģi Traumani - Latvijas tēlnieku un metālmākslinieku. E-pasts un tālrunis pasūtījumiem un sadarbībai."
+	canonical="/kontakti"
+	keywords="Uģis Traumanis kontakti, contact sculptor Latvia, pasūtīt skulptūru, commission sculpture"
+	projects={data.projects}
+/>
 
 <main class="p-2">
 	<Screensaver projects={data.projects} />
@@ -15,7 +21,7 @@
 		exhibitions={data.exhibitions}
 		bio={data.profile.bio}
 		contacts={data.profile.contacts}
-		initialTab="bio"
+		initialTab="kontakti"
 	/>
 	{#each data.projects as project}
 		<ProjectBlock {project} />

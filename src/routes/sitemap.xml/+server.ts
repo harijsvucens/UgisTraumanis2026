@@ -9,6 +9,18 @@ export const GET: RequestHandler = async () => {
 			lastmod: new Date().toISOString().split('T')[0],
 			changefreq: 'monthly',
 			priority: '1.0'
+		},
+		{
+			url: '/izstades',
+			lastmod: new Date().toISOString().split('T')[0],
+			changefreq: 'monthly',
+			priority: '0.8'
+		},
+		{
+			url: '/kontakti',
+			lastmod: new Date().toISOString().split('T')[0],
+			changefreq: 'yearly',
+			priority: '0.7'
 		}
 	];
 
