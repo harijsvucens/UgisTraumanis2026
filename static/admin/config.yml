@@ -113,4 +113,20 @@ collections:
           - label: "Contacts"
             name: "contacts"
             widget: "text"
+      - name: "project-order"
+        label: "Project Order"
+        file: "src/lib/data/project-order.json"
+        fields:
+          - label: "Project Order"
+            name: "order"
+            widget: "list"
+            hint: "Drag and drop to reorder projects. First item appears at the top."
+            field:
+              label: "Project"
+              name: "projectId"
+              widget: "relation"
+              collection: "projects"
+              search_fields: ["title", "id"]
+              value_field: "id"
+              display_fields: ["title", "year"]
 
