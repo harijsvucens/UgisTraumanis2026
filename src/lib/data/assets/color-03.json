@@ -2,5 +2,6 @@
   "id": "091c238e-bb38-4b2b-8121-211c13d169f5",
   "title": "color-03",
   "publicId": "IMG_0132_se4f5i.jpg",
-  "alt": "skulptūre"
+  "alt": "skulptūre",
+  "excludeFromScreensaver": true
 }

@@ -24,6 +24,7 @@
 		<button
 			class="image-item cursor-pointer transition-opacity hover:opacity-90"
 			onclick={() => lightbox.open(images, index)}
+			onmouseenter={() => lightbox.preload(image.publicId)}
 			aria-label="View {image.alt} in lightbox"
 		>
 			<CloudinaryImage

@@ -2,5 +2,6 @@
   "id": "e5ed10e0-bb23-4b57-9d97-e741c61ef460",
   "title": "MS-04",
   "publicId": "IMG_0018_jde1nn.jpg",
-  "alt": "skulptūra"
+  "alt": "skulptūra",
+  "excludeFromScreensaver": true
 }

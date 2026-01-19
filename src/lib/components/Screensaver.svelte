@@ -23,7 +23,9 @@
 
 	$effect(() => {
 		if (projects) {
-			const allImages = projects.flatMap((p) => p.images);
+			const allImages = projects
+				.flatMap((p) => p.images)
+				.filter((img) => !img.excludeFromScreensaver);
 			images = shuffle([...allImages]);
 		}
 	});

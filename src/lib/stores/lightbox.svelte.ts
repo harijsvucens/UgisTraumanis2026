@@ -1,4 +1,12 @@
 import type { ProjectImage } from '$lib/data/projects';
+import { PUBLIC_CLOUDINARY_CLOUD_NAME } from '$env/static/public';
+
+// Track preloaded images to avoid duplicate requests
+const preloadedImages = new Set<string>();
+
+function getHighResUrl(publicId: string): string {
+	return `https://res.cloudinary.com/${PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/f_auto,q_auto,c_fit,w_1600/${publicId}`;
+}
 
 class LightboxState {
 	isOpen = $state(false);
@@ -7,6 +15,15 @@ class LightboxState {
 
 	get currentImage() {
 		return this.images[this.currentIndex];
+	}
+
+	// Preload high-res image on hover for instant display
+	preload(publicId: string) {
+		if (preloadedImages.has(publicId)) return;
+		preloadedImages.add(publicId);
+
+		const img = new Image();
+		img.src = getHighResUrl(publicId);
 	}
 
 	open(images: ProjectImage[], index: number = 0) {

@@ -39,6 +39,11 @@ collections:
         name: "alt"
         widget: "string"
         hint: "Default description for accessibility"
+      - label: "Exclude from Screensaver"
+        name: "excludeFromScreensaver"
+        widget: "boolean"
+        default: false
+        hint: "Check this to prevent this image from appearing in the screensaver slideshow"
 
   # 2. UPDATED PROJECTS COLLECTION
   - name: "projects"

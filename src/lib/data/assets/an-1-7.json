@@ -2,5 +2,6 @@
   "id": "fc1c10dd-3736-4541-b7f5-21068e12e07a",
   "title": "SKU-1-7",
   "publicId": "F_wodixy.jpg",
-  "alt": "Skulptūra"
+  "alt": "Skulptūra",
+  "excludeFromScreensaver": true
 }

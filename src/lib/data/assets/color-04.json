@@ -2,5 +2,6 @@
   "id": "f7f8e1f1-8e1d-43c9-b00f-67266150c452",
   "title": "color-04",
   "publicId": "IMG_0133_nhtw0x.jpg",
-  "alt": "skulptūra"
+  "alt": "skulptūra",
+  "excludeFromScreensaver": true
 }

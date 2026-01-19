@@ -20,6 +20,7 @@ interface Asset {
 	title: string;
 	publicId: string;
 	alt: string;
+	excludeFromScreensaver?: boolean;
 }
 
 export async function load() {
@@ -53,7 +54,8 @@ export async function load() {
 				return {
 					publicId: asset?.publicId || '', // Fallback if asset not found
 					alt: altText,
-					layout: img.layout || 'landscape'
+					layout: img.layout || 'landscape',
+					excludeFromScreensaver: asset?.excludeFromScreensaver || false
 				};
 			}) || [];
 

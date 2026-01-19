@@ -2,5 +2,6 @@
   "id": "2ca91b54-d2db-47e9-b80c-ddcf5d62babf",
   "title": "color-2",
   "publicId": "IMG_0073_1_xvfadj.jpg",
-  "alt": "Skulptūra"
+  "alt": "Skulptūra",
+  "excludeFromScreensaver": true
 }

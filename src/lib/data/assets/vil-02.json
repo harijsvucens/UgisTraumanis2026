@@ -2,5 +2,6 @@
   "id": "eea2f8c7-159e-4cf7-ae64-a1d2d26eff1d",
   "title": "VIL-02",
   "publicId": "P6282745_xfnhwr.jpg",
-  "alt": "Skulptūra"
+  "alt": "Skulptūra",
+  "excludeFromScreensaver": true
 }
