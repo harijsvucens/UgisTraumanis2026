@@ -1,0 +1,16 @@
+{
+  "id": "MS-01",
+  "title": "Skulptūras",
+  "year": "-",
+  "sortOrder": 95,
+  "images": [
+    {
+      "assetId": "d9fcf5c2-ac61-418b-a34e-428039b72da7",
+      "layout": "portrait"
+    },
+    {
+      "assetId": "577f996e-096c-4cd4-9ff1-f1b4944e1519",
+      "layout": "landscape"
+    }
+  ]
+}

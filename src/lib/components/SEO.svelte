@@ -1,4 +1,7 @@
 <script lang="ts">
+	import type { Project } from '$lib/data/projects';
+	import { PUBLIC_CLOUDINARY_CLOUD_NAME } from '$env/static/public';
+
 	interface Props {
 		title?: string;
 		description?: string;
@@ -6,6 +9,7 @@
 		image?: string;
 		type?: 'website' | 'article';
 		siteUrl?: string;
+		projects?: Project[];
 	}
 
 	let {
@@ -14,7 +18,8 @@
 		canonical,
 		image,
 		type = 'website',
-		siteUrl = 'https://ugistraumanis.com'
+		siteUrl = 'https://ugistraumanis.com',
+		projects = []
 	}: Props = $props();
 
 	// Build full canonical URL
@@ -23,11 +28,11 @@
 	// Build full image URL
 	const fullImage = $derived(
 		image ??
-			`https://res.cloudinary.com/dowxhswap/image/upload/w_1200,h_630,c_fill,g_auto,f_auto,q_auto/onlyonly-studio/59DU3026`
+			`https://res.cloudinary.com/${PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/w_1200,h_630,c_fill,g_auto,f_auto,q_auto/onlyonly-studio/59DU3026`
 	);
 
 	// JSON-LD structured data for Person (Artist)
-	const jsonLd = $derived({
+	const personSchema = $derived({
 		'@context': 'https://schema.org',
 		'@type': 'Person',
 		name: 'Uģis Traumanis',
@@ -44,8 +49,49 @@
 		},
 		url: siteUrl,
 		image: fullImage,
-		sameAs: []
+		email: 'traumanis@gmail.com',
+		telephone: '+371 26181546',
+		sameAs: [
+			// Add social media profile URLs as they become available
+			// 'https://www.instagram.com/ugistraumanis',
+			// 'https://www.facebook.com/ugistraumanis',
+		]
 	});
+
+	// ImageGallery schema for the portfolio
+	const gallerySchema = $derived({
+		'@context': 'https://schema.org',
+		'@type': 'ImageGallery',
+		name: 'Uģis Traumanis Portfolio',
+		description: 'Collection of steel and metal sculptures by Latvian artist Uģis Traumanis',
+		url: siteUrl,
+		author: {
+			'@type': 'Person',
+			name: 'Uģis Traumanis'
+		}
+	});
+
+	// Generate VisualArtwork schema for each project
+	const artworkSchemas = $derived(
+		projects.map((project) => ({
+			'@context': 'https://schema.org',
+			'@type': 'VisualArtwork',
+			name: project.title,
+			dateCreated: project.year,
+			artMedium: 'Steel, Metal',
+			artform: 'Sculpture',
+			creator: {
+				'@type': 'Person',
+				name: 'Uģis Traumanis'
+			},
+			image: project.images[0]?.publicId
+				? `https://res.cloudinary.com/${PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/w_800,f_auto,q_auto/${project.images[0].publicId}`
+				: undefined
+		}))
+	);
+
+	// Combine all schemas into a single array for JSON-LD
+	const allSchemas = $derived([personSchema, gallerySchema, ...artworkSchemas]);
 </script>
 
 <svelte:head>
@@ -54,6 +100,10 @@
 	<meta name="title" content={title} />
 	<meta name="description" content={description} />
 	<link rel="canonical" href={fullCanonical} />
+
+	<!-- hreflang for multilingual SEO -->
+	<link rel="alternate" hreflang="lv" href={siteUrl} />
+	<link rel="alternate" hreflang="x-default" href={siteUrl} />
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content={type} />
@@ -72,5 +122,5 @@
 	<meta name="twitter:image" content={fullImage} />
 
 	<!-- JSON-LD Structured Data -->
-	{@html `<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`}
+	{@html `<script type="application/ld+json">${JSON.stringify(allSchemas)}</script>`}
 </svelte:head>

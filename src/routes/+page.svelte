@@ -7,7 +7,7 @@
 	let { data } = $props();
 </script>
 
-<SEO />
+<SEO projects={data.projects} />
 
 <main class="p-2">
 	<Screensaver projects={data.projects} />

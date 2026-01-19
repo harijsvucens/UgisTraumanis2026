@@ -49,9 +49,11 @@ export async function load() {
 			const hydratedImages =
 				raw.images?.map((img) => {
 					const asset = assetMap.get(img.assetId);
+					// Build descriptive alt: prefer asset alt, fallback to "Project Title (Year)"
+					const altText = asset?.alt || `${raw.title || 'Sculpture'} (${raw.year || 'artwork'})`;
 					return {
 						publicId: asset?.publicId || '', // Fallback if asset not found
-						alt: asset?.alt || raw.title || '', // Use asset alt, or fallback to project title
+						alt: altText,
 						layout: img.layout || 'landscape'
 					};
 				}) || [];
