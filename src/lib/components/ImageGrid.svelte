@@ -50,13 +50,19 @@
 
 	@media (max-width: 640px) {
 		.image-item {
-			height: 280px;
+			height: auto;
 			width: 100%;
 		}
 
 		.image-item :global(.image-container) {
 			width: 100%;
-			height: 100%;
+			height: auto;
+		}
+
+		.image-item :global(img) {
+			width: 100%;
+			height: auto;
+			aspect-ratio: auto;
 		}
 	}
 </style>
